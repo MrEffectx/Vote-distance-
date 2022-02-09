@@ -30,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexGouvernement.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="indexGouvernement.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Menu</span></a>
             </li>
@@ -53,13 +53,13 @@
             <!-- Heading -->
 
             <li class="nav-item">
-                <a class="nav-link" href="listes.html">
+                <a class="nav-link" href="listesGouvernement.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Candidats</span></a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="stats.html">
+                <a class="nav-link" href="statsGouvernement.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Stats</span></a>
             </li>
@@ -83,8 +83,8 @@
 
             <!-- Main Content -->
             <div id="content">
-
-              <!-- Topbar -->
+            
+            <!-- Topbar -->
                 
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 					
@@ -147,11 +147,63 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+            <!-- Main Content -->
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Ajout de candidat</h1>
+                                    </div>
+                                    <form class="user">
+
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputName" aria-describedby="nom"
+                                                placeholder="Nom du candidat">
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <input type="name" class="form-control form-control-user"
+                                                id="exampleInputPrenom" aria-describedby="prenom"
+                                                placeholder="Prenom du candidat">
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <input type="string" class="form-control form-control-user"
+                                                id="exampleInputID" aria-describedby="ID Card"
+                                                placeholder="Carte Identité">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="string" class="form-control form-control-user"
+                                                id="exampleInputID" aria-describedby="Picture"
+                                                placeholder="Photo de campagne">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="string" class="form-control form-control-user"
+                                                id="exampleInputID" aria-describedby="Programme"
+                                                placeholder="Compléter avec le programme">
+                                        </div>
+
+                                        <a class="btn btn-primary btn-user btn-block">
+                                            Valider
+                                        </a>
+                                        <a class="btn btn-primary btn-user btn-block">
+                                            Annuler
+                                        </a>
+                                        <hr>
+                                    </form>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
@@ -182,15 +234,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Déconnexion ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Quitter fermera votre session actuelle et vous renverra vers la page de connexion.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="firstSelect.html">Quitter</a>
                 </div>
             </div>
         </div>
@@ -212,9 +264,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
-
-
 
 </body>
 
