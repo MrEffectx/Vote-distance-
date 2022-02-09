@@ -10861,19 +10861,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("http://cdn-s-www.leprogres.fr/images/9FBC8F46-ECAF-4458-A27A-AC3F254A805D/LPR_v1_02/photo-dr-1514659165.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+  background: url("https://www.francetvinfo.fr/pictures/_j4OL99kN4YmhzOauBhZ0FHSk-o/1200x675/2017/05/07/php4pJDRw_1.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
+  background: url("https://upload.wikimedia.org/wikipedia/commons/6/62/Mail-closed.svg");
   background-position: center;
   background-size: cover;
 }
