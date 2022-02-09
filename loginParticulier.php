@@ -24,6 +24,18 @@
 
 <body class="bg-gradient-primary">
 
+		<?php include('login.php') ; ?>
+        <?php
+    try
+    {
+    $bdd = new PDO("mysql:host=localhost:8889;dbname=FASHIONCLOTHES","root","root");
+  	}
+  	catch(exception $e)
+  	{
+    die("Erreur de Connexion");
+  	}
+  	?>
+        
     <div class="container">
 
         <!-- Outer Row -->
