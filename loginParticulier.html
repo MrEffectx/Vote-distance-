@@ -24,18 +24,8 @@
 
 <body class="bg-gradient-primary">
 
-		<?php include('login.php') ; ?>
-        <?php
-    try
-    {
-    $bdd = new PDO("mysql:host=localhost:8889;dbname=FASHIONCLOTHES","root","root");
-  	}
-  	catch(exception $e)
-  	{
-    die("Erreur de Connexion");
-  	}
-  	?>
-        
+ <?php include('connection.php') ;?>
+
     <div class="container">
 
         <!-- Outer Row -->
@@ -53,16 +43,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Connexion</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="moteur.php" method="post">
 
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="InputEmail" aria-describedby="emailHelp"
                                                 placeholder="Votre email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mot de passe">
+                                                id="InputPassword" placeholder="Mot de passe">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -70,11 +60,26 @@
                                                 <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
                                             </div>
                                         </div>
-                                        <a href="indexParticulier.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="indexParticulier.html" class="btn btn-primary btn-user btn-block" type="submit">
                                             Connexion
                                         </a>
                                         <hr>
                                     </form>
+                                    
+                                    <?php
+                                   		$email = .$_POST["InputEmail"];
+										$password = .$_POST["InputPassword"];
+										
+										$req='SELECT COUNT(*) FROM user WHERE EMAIL=' + $email + ' AND MDP=' + $password +"'";
+										if($req == 1){
+											$role = 'SELECT role FROM user WHERE EMAIL=' + $email + ' AND MDP=' + $password +"'";
+											$adress = 'login'+$role+'.html';
+    										echo $adress;
+										}else{
+    										echo null;
+										}
+                                    ?>
+                                    
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>

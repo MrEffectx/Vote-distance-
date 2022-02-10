@@ -190,7 +190,7 @@
 										Développer les solutions d'accueil de jeunes enfants ; arrêter la ponction des allocations familles et la consacrer à toutes les familles, y compris ayant un ou eux enfants déconjugaliser l'allocation adulte handicapé.
 										Congé parental étendu jusqu'aux 18 ans de l'enfant en cas de difficultés scolaires ou problèmes de santé.
 										Le RSA doit donner lieu à une contrepartie d’activité d’intérêt général.
- <a target="_blank" rel="nofollow" href="listes.html">Plus d'info.</a></p>
+ 										<a target="_blank" rel="nofollow" href="listes.html">Plus d'info.</a></p>
                                     
                                      <div  aria-labelledby="userDropdown">
 	                        			<a class="dropdown-item" href="#" data-toggle="modal" data-target="#voteModal">
@@ -407,6 +407,19 @@
 	                <div class="modal-body">Etes vous certain de vouloir voter pour [candidat-name] ?</div>
 	                <div class="modal-footer">
 	                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+	                    <?php
+										$statut='SELECT statut FROM user WHERE EMAIL=' + $email + ' AND MDP=' + $password +"'";
+										$candidat='SELECT vote FROM candidat WHERE NOM=' + $nom +"'";
+
+										if($statut == 0){
+											$sqlQuery->real_query("UPDATE `vote`.`electeur` SET `STATUT` = '1' WHERE EMAIL=' + $email + ' AND MDP=' + $password +"'");
+											
+											$nbVote ='SELECT nbvote FROM vote WHERE NOM=' + $nom +"'";
+											$sqlQuery->real_query("UPDATE `nbvote`.`vote` SET `nbvote` = '$nbvote+1' WHERE NOM=' + $candidat +"'");
+										}else{
+    										echo null;
+										}
+                                    ?>
 	                    <a class="btn btn-primary" href="listesParticulier.html">Voter</a>
 	                </div>
 	            </div>
