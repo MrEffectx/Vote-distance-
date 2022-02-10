@@ -23,18 +23,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-
-		<?php include('login.php') ; ?>
-        <?php
-    try
-    {
-    $bdd = new PDO("mysql:host=localhost:8889;dbname=FASHIONCLOTHES","root","root");
-  	}
-  	catch(exception $e)
-  	{
-    die("Erreur de Connexion");
-  	}
-  	?>
         
     <div class="container">
 
@@ -73,9 +61,8 @@
                                         <a href="indexParticulier.html" class="btn btn-primary btn-user btn-block">
                                             Connexion
                                         </a>
-                                        <hr>
                                     </form>
-                                    <hr>
+                                    <br>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>
                                     </div>
