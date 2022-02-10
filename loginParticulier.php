@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Vote chez toi ! - Connexion </title>
+    <title>Vote chez toi ! - Connexion</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 <body class="bg-gradient-primary">
-
+        
     <div class="container">
 
         <!-- Outer Row -->
@@ -39,34 +39,36 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="mb-4" style="color: #0fbcf9;" ><strong>Connexion</strong></h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Connexion</h1>
                                     </div>
                                     <form class="user">
-  
-                                        <div class="form-group" style="color: #485460; padding-top: 15px; font-size:24px;">
-                                           <strong>Vous êtes : </strong>
+
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Votre email">
                                         </div>
-                                        <div style="padding-right: 10%; padding-left: 10%; ">
-                                        <a href="loginParticulier.php" class="btn btn-primary btn-user btn-block">
-                                            Electeur
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Mot de passe">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
+                                            </div>
+                                        </div>
+                                        <a href="indexParticulier.html" class="btn btn-primary btn-user btn-block">
+                                            Connexion
                                         </a>
-                                        <a href="loginChefBureau.html" class="btn btn-primary btn-user btn-block">
-                                            Chef de Bureau
-                                        </a>
-										<a href="loginCandidat.html" class="btn btn-primary btn-user btn-block">
-                                            Candidat
-                                        </a>
-                                        <a href="loginGouvernement.html" class="btn btn-primary btn-user btn-block">
-                                            Membre du gouvernement
-                                        </a>
-                                        
-                                        <a href="loginAdmin.html" class="btn btn-primary btn-user btn-block">
-                                            Administrateur
-                                        </a>
-                                    </div>
-                                </div>
                                     </form>
-                                    
+                                    <br>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Nouveau ? Créer votre compte !</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
