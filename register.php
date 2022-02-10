@@ -22,6 +22,44 @@
 
 </head>
 
+<?php
+    try
+    {
+    $bdd = new PDO("mysql:host=localhost:8889;dbname=vct","root","root");
+  }
+  catch(exception $e)
+  {
+    die("Erreur de Connexion");
+  }
+
+  if(isset($_POST['valider']))
+  {
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
+    $email =  $_POST['email'];
+    $adresse = $_POST['adresse'];
+    $sexe = $_POST['sexe'];
+    $tel = $_POST['tel'];
+    $datenaiss = $_POST['datenaiss'];
+    $numci = $_POST['numci'];
+    $mdp1 = $_POST['mdp1'];
+    $mdp2 = $_POST['mdp2'];
+
+
+    if($mdp1 == $mdp2)
+
+    {
+
+      $requete = $bdd->query("INSERT INTO ELECTEUR (NOM, PRENOM, DATENAISS, ADRESSE, MDP,SEXE,EMAIL,TEL,NUMCI) VALUES('$nom','$prenom','$datenaiss','$adresse', '$mdp1','$sexe','$email','$tel','$numci')");
+
+      echo '<p style="text-align: center;">Votre inscription a bien été prises en compte. </p>';
+
+    }
+    else{
+      echo 'Erreur mot de passe est different !!!';
+    }
+  }
+?>
 
 <body>
     <div class="container">
@@ -36,36 +74,44 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Créer votre compte !</h1>
                             </div>
-                            <form class="user">
+                            <form method="post" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Prénom">
+                                        <input type="text" class="form-control form-control-user" name="prenom" placeholder="Prénom">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Nom">
+                                        <input type="text" class="form-control form-control-user" name="nom" placeholder="Nom">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Adresse mail">
+                                    <input type="text" class="form-control form-control-user" name="email" placeholder="Adresse mail">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" name="adresse" placeholder="Adresse">
+                                </div>
+                                <div class="form-group">
+                                    <input type="phone" class="form-control form-control-user" name="tel" placeholder="Téléphone portable">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" name="sexe" placeholder="Sexe">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" name="datenaiss" placeholder="Date de Naissance">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input type="phone" class="form-control form-control-user" id="exampleInputPhone" placeholder="Téléphone portable">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <input type="idCard" class="form-control form-control-user" id="exampleInputIdCard" placeholder="Numéro carte identité">
+                                    <input type="idCard" class="form-control form-control-user" name="numci" placeholder="Numéro carte identité">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                                        <input type="password" class="form-control form-control-user" name="mdp1" placeholder="Mot de passe">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirmer mot de passe">
+                                        <input type="password" class="form-control form-control-user" name="mdp2" placeholder="Confirmer mot de passe">
                                     </div>
                                 </div>
                                 
-                                <a href="firstSelect.html" class="btn btn-primary btn-user btn-block">Se connecter</a>
+                                <button type="submit" class="btn btn-primary btn-user btn-block" name="valider">Se connecter</button>
                                 
                                 
                             </form>

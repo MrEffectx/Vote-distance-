@@ -21,7 +21,30 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<?php
+session_start();
 
+    try
+    {
+        $bdd = new PDO("mysql:host=localhost:8889;dbname=vct","root","root");
+    }
+    catch(exception $e)
+    {
+        die("Erreur de Connexion");
+    }
+
+    
+    if(isset($_SESSION['electeur']))
+    
+{
+    $requser = $bdd->prepare("SELECT * FROM ELECTEUR WHERE EMAIL = ?");
+    $requser->execute(array($_SESSION['electeur']));
+    $requser = $requser->fetch();
+
+  }
+
+
+?>
 <body>
 
 <div id="wrapper">
@@ -30,19 +53,19 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexParticulier.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Vote chez toi ! <sup>Gouv</sup></div>
-            </a>
 
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexParticulier.php">
+                <div class="sidebar-brand-icon">
+                    <img style="height: 50px;" src="img/123.png">
+                </div>
+                <div class="sidebar-brand-text mx-3">Vote chez toi !</div>
+            </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="indexParticulier.html">
+                <a class="nav-link" href="indexParticulier.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Menu</span></a>
             </li>
@@ -128,7 +151,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow show">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mr Mdme X</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">  <?php echo 'Bienvenue ',$requser['PRENOM'],'!';?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -142,24 +165,36 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-                
-                	<div>
-						Démarche à suivre : 
-                    </div>
-                    
-                    <div class="list">
-						Aller sur la page candidat
-                    </div>
-                    
-                    <div class="list">
-						Faire son choix, une fois que vous êtes certain, cliquez sur le bouton sous le profil du candidat
-                    </div>
-                    
-                    <div class="list">
-						Confirmer votre choix sur la fenetre qui s'ouvrira.
-                    </div>
-
+                <div style="background-color: #ffffff;
+                -webkit-box-shadow: 3px 5px 10px 0px #656565;
+                -moz-box-shadow: 3px 5px 10px 0px #656565;
+                filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=5, Color='#656565', Positive='true');
+                zoom:1;
+                box-shadow: 3px 5px 10px 0px #656565;
+                -moz-border-radius:5px;
+                -webkit-border-radius:5px;
+                border-radius:5px;
+                padding-top:5%;
+                padding-right:5%;
+                padding-left:5%;
+                padding-bottom:10%;">
+                <table>
+                        <tr>
+                            <td><iframe width="560" height="315" src="https://www.youtube.com/embed/gEatS_HOWnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                            <td style="padding-left:30px;"><h1 class="h4 " style="text-align:center; color:#0fbcf9; font-size: 36px;"> Comment voter en ligne ?</h1><br>
+                                <p> <em style="color: #575fcf;">#Présidentielle2022</em> | Simplifiez-vous la vie avec le vote par internet ! <br>
+                                    🌎 Où ? Quel que soit votre lieu de résidence, depuis votre téléphone portable, votre tablette ou votre ordinateur.<br>
+                                    📅 Quand ? Dimanche 10 avril 2022.<br><br>
+                                    Démarche à suivre : 
+                                    <ul>
+                                        <li>Aller sur la page candidat</li>
+                                        <li>Faire son choix, une fois que vous êtes certain, cliquez sur le bouton sous le profil du candidat</li>
+                                        <li>Confirmer votre choix sur la fenetre qui s'ouvrira.</li>
+                                    </ul>
+                                </p></td>
+                        </tr>
+                        <br>
+                    </table>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -197,6 +232,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
+
                 <div class="modal-body">Quitter fermera votre session actuelle et vous renverra vers la page de connexion.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>

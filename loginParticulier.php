@@ -21,7 +21,39 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<?php
+  try
+    {
+    $mysqli = new mysqli('localhost:8889','root','root','vct');
+    }
+  catch(exception $e)
+    {
+    die("Erreur de Connexion");
+    }
+ if(isset($_POST['login']))
+ {
 
+    $email= $_POST['email'];
+    $mdp= $_POST['mdp'];
+
+    $result= $mysqli->query("SELECT * FROM ELECTEUR WHERE EMAIL='$email' and MDP='$mdp'");
+
+    $row_cnt = $result->num_rows;
+    session_start();
+    $_SESSION['electeur']= $email;
+
+
+    if ($row_cnt == 1)
+    {
+    header("Location: indexParticulier.php?login=".$_SESSION['electeur']);
+    } 
+    else 
+    {
+     echo ' <br> <br> <br><p style="text-align: center;">Vos information ne sont pas correct ! </p>';
+    }
+  }
+
+?>
 <body class="bg-gradient-primary">
         
     <div class="container">
@@ -41,16 +73,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Connexion</h1>
                                     </div>
-                                    <form class="user">
+                                    <form method="post" class="user">
 
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
                                                 placeholder="Votre email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mot de passe">
+                                                id="exampleInputPassword" name="mdp" placeholder="Mot de passe">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,16 +90,16 @@
                                                 <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
                                             </div>
                                         </div>
-                                        <a href="indexParticulier.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block" name="login">
                                             Connexion
-                                        </a>
+                                        </button>
                                     </form>
                                     <br>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Nouveau ? Créer votre compte !</a>
+                                        <a class="small" href="register.php">Nouveau ? Créer votre compte !</a>
                                     </div>
                                 </div>
                             </div>
